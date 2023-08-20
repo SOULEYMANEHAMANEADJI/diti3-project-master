@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"  minWidth="-Infinity" prefHeight="640.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sn.diti3.diti3project.controller.LivreController">
+   <children>
+      <Text layoutX="198.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GESTION DES LIVRES ET DES EMPRUNTS" textAlignment="CENTER" underline="true" wrappingWidth="625.94873046875">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Text>
+      <VBox layoutX="56.0" layoutY="138.0" prefHeight="389.0" prefWidth="297.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titre">
+               <VBox.margin>
+                  <Insets right="10.0" top="20.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="titreTfd" promptText="Le titre du livre ici ...">
+               <VBox.margin>
+                  <Insets right="10.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Auteur">
+               <VBox.margin>
+                  <Insets right="10.0" top="20.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="auteurTfd" promptText="L'auteur du livre ici ...">
+               <VBox.margin>
+                  <Insets right="10.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ISBN">
+               <VBox.margin>
+                  <Insets right="10.0" top="20.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="isbnTfd" promptText="L'ISBN du livre ici ...">
+               <VBox.margin>
+                  <Insets right="10.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de pages">
+               <VBox.margin>
+                  <Insets right="10.0" top="20.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="nbPagesTfd" promptText="Le nombre de pages du livre ici ...">
+               <VBox.margin>
+                  <Insets right="10.0" top="20.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <Text layoutX="432.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des livres" textAlignment="CENTER" underline="true">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+       <TextField fx:id="searchField" layoutX="670.0" layoutY="138.0" prefHeight="25.0" prefWidth="308.0" promptText="Rechercher par ID, Titre, ISBN, ..." />
+      <TableView fx:id="livreTb" layoutX="420.0" layoutY="176.0" onMouseClicked="#getData" prefHeight="287.0" prefWidth="564.0">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="titreCol" prefWidth="133.0" text="TITRE" />
+            <TableColumn fx:id="auteurCol" prefWidth="111.0" text="AUTEUR" />
+            <TableColumn fx:id="isbnCol" prefWidth="117.0" text="ISBN" />
+            <TableColumn fx:id="nbPagesCol" prefWidth="127.0" text="NB. PAGES" />
+            <!-- <TableColumn fx:id="actionsCol" prefWidth="173.0" text="Actions" /> -->
+        </columns>
+      </TableView>
+       <!-- Add these labels to your FXML layout -->
+
+       <Label layoutX="764.0" layoutY="472.0" text="Nombre de livres disponibles : " />
+       <!-- <Label fx:id="availableBooksLabel" /> -->
+       <TextField fx:id="livresEmpruntesField" editable="false" layoutX="598.0" layoutY="469.0" prefHeight="26.0" prefWidth="36.0" />
+       <Label layoutX="427.0" layoutY="472.0" text="Nombre de livres empruntés : " />
+       <!-- <Label fx:id="borrowedBooksLabel" /> -->
+       <TextField fx:id="livresDisponiblesField" editable="false" layoutX="936.0" layoutY="469.0" prefHeight="25.0" prefWidth="36.0" />
+
+       <ButtonBar layoutX="291.0" layoutY="533.0" prefHeight="40.0" prefWidth="433.0">
+        <buttons>
+            <Button fx:id="enregistrerBtn" layoutX="140.0" layoutY="17.0" mnemonicParsing="false" onAction="#save" text="Save" />
+            <Button fx:id="modifierBtn" layoutX="140.0" layoutY="17.0" mnemonicParsing="false" onAction="#update" text="Edit" />
+            <Button fx:id="supprimerBtn" layoutX="190.0" layoutY="17.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+            <Button fx:id="effacerBtn" mnemonicParsing="false" onAction="#clear" prefHeight="26.0" prefWidth="83.0" text="Clear Inputs" />
+            <Button fx:id="emprunterBtn" layoutX="360.0" layoutY="17.0" mnemonicParsing="false" onAction="#emprunt" prefHeight="26.0" prefWidth="83.0" text="Emprunter" />
+            <Button fx:id="rendreBtn" layoutX="369.0" layoutY="17.0" mnemonicParsing="false" onAction="#rendre" prefHeight="26.0" prefWidth="83.0" text="Rendre" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>
